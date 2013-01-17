@@ -1,0 +1,35 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><span>カテゴリー管理</span></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>カテゴリー設定（新規登録 ）</h2>
+		<div id="auth">
+			<p>カテゴリーを新規登録します。フォームに必要事項を入力・選択し、「設定」ボタンを押して下さい。※：必須</p><br />
+			<div id="completeMsg" style="display:none" class="completeMsg"></div>
+			<div id="errMsg" class="error" style="display:none"></div>
+			<form method="post" id="frmAdd">
+				<strong>設定項目&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong> 設定内容</strong>
+				<br />カテゴリー名：※&nbsp;
+				<input type="text" id="txtName" name="txtName" value="" maxlength="30" size="60" class="required" />
+				<div class="validation-advice" id="advice-required-txtName" title="カテゴリー名を入力して下さい。" style="display:none;"></div>
+				<br /><input type="button" id="btnSubmit" value="　設定　" />
+			</form>
+
+<br />
+			<form method="post" id="frmBack" action="{%$baseUrl%}/manage/listcategory">
+    			<input type="hidden" id="pageIndex" name="pageIndex" value="{%$pageIndex%}" />
+    			<a href="javascript:void(0);" onclick="$('frmBack').submit();return false;">&lt;&lt;前の画面へ</a>
+			</form>
+		</div><!--/#auth-->
+		<script src="{%$staticUrl%}/admin/js/manage/addcategory.js?{%$version.js%}"></script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

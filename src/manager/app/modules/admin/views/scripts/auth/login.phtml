@@ -1,0 +1,41 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<div id="container">
+		<div id="auth">
+			<p>FENS様検索エンジン管理管理者ログイン。</p>
+			{% if $errmsg %}
+			<div class="error">
+				<p>{%$errmsg|escape%}</p>
+			</div><!--/.error-->
+			{% /if %}
+			<form id="frmLogin" name="frmLogin" method="post" action="{%$baseUrl%}/auth/login">
+				<ul>
+					<li><label for="">ログインID：</label><br />
+						<input type="text" id="txtId" name="txtId" class="required validate-alphanum" value="{%$adminId%}" maxlength="40" tabindex="1" />
+						<div class="validation-advice" id="advice-required-txtId" title="ログインIDを入力して下さい。" style="display:none;"></div>
+					</li>
+					<li><label for="">パスワード：</label><br />
+						<input type="password" id="txtPw" name="txtPw" class='required-password validate-alphanum validate-length-range-6-12' maxlength="12" tabindex="2" />
+					</li>
+					<li><input type="button" value="　ログイン　" onclick="login();" tabindex="3" /></li>
+				</ul>
+			</form>
+		</div><!--/#auth-->
+	</div><!--/#container-->
+	<script type="text/javascript" language="javascript">
+        var _valid = new Validation('frmLogin', {immediate:true,useTitles:true});
+        /**
+         * submit to login action
+         * @param  null
+         * @return void
+         */
+        function login() {
+            if (!_valid.validate()) {
+                return ;
+            }
+            $('frmLogin').submit();
+        }
+	</script>
+{%include file="footer.phtml"%}

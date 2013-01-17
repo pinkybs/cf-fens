@@ -1,0 +1,71 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><span>システム設定</span></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>ID・パスワード設定</h2>
+		<div id="auth">
+			●<a href="{%$baseUrl%}/setting/crawl">クローリング設定</a>　●<a href="{%$baseUrl%}/setting/syncdb">DB同期設定</a>　●<a href="{%$baseUrl%}/setting/changepass">ID・パスワード設定</a>
+			<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+			<p>■システムログインIDを設定をして下さい</p><br />
+			{% if $completeMsg1 %}<div id="completeMsg1" class="completeMsg">{%$completeMsg1%}</div>{% /if %}
+			{% if $errMsg1 %}<div id="errMsg1" class="error">{%$errMsg1%}</div>{% /if %}
+			<form method="post" id="frmChangePass1" action="{%$baseUrl%}/setting/changepass">
+				<input type="hidden" name="hidMode" value="1" />
+				<table width="80%">
+				<tr><th width="10%">設定項目</th><th>設定内容</th></tr>
+				<tr><td>ログインID：</td><td><input type="text" id="txtId" name="txtId" value="{%$userId%}" maxlength="40" size="40" class="required validate-alphanum" />
+				<div class="validation-advice" id="advice-required-txtId" title="ログインIDを入力して下さい。" style="display:none;"></div></td></tr>
+				<tr><td colspan="2"><input type="button" value="　設定　" onclick="change1()" /></td></tr>
+				</table>
+			</form>
+
+			<br /><HR style="display:block;margin-top:5px;margin-bottom:5px;"><br />
+
+			<p>■システムログインパスワードを設定して下さい</p><br />
+			{% if $completeMsg2 %}<div id="completeMsg2" class="completeMsg">{%$completeMsg2%}</div>{% /if %}
+			{% if $errMsg2 %}<div id="errMsg2" class="error">{%$errMsg2%}</div>{% /if %}
+			<form method="post" id="frmChangePass2" action="{%$baseUrl%}/setting/changepass">
+				<input type="hidden" name="hidMode" value="2" />
+				<!-- 現在のパスワード：<input type="password" id="txtOldPw" name="txtOldPw" class="required-password validate-alphanum validate-length-range-6-12" maxlength="12" /><br /> -->
+				<table width="80%">
+				<tr><th width="25%">設定項目</th><th>設定内容</th></tr>
+				<tr><td>変更後のパスワード：</td><td><input type="password" id="txtNewPw" name="txtNewPw" class="required-password validate-alphanum validate-length-range-6-12" maxlength="12" /></td></tr>
+				<tr><td>変更後のパスワード（確認用）：</td><td><input type="password" id="txtConfirmPw" name="txtConfirmPw" class="required-password validate-equals-txtNewPw" maxlength="15" /></td></tr>
+				<tr><td colspan="2"><input type="button" value="　設定　" onclick="change2()" /></td></tr>
+				</table>
+			</form>
+
+			<div id="loading" style="display:none"></div>
+		</div><!--/#auth-->
+		<script type="text/javascript" language="javascript">
+            var _valid1 = new Validation('frmChangePass1', {immediate:true,useTitles:true});
+            var _valid2 = new Validation('frmChangePass2', {immediate:true,useTitles:true});
+            /**
+             * submit to change action
+             * @param  null
+             * @return void
+             */
+            function change1() {
+                if (!_valid1.validate()) {
+                    return ;
+                }
+                $('frmChangePass1').submit();
+            }
+            function change2() {
+                if (!_valid2.validate()) {
+                    return ;
+                }
+                $('frmChangePass2').submit();
+            }
+		</script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

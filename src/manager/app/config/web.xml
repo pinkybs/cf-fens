@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app>
+	<version>
+		<js>01:20090320</js>
+		<css>01:20090320</css>
+	</version>
+	
+	<module>
+		<admin>admin/controllers</admin>
+		<ajax>ajax/controllers</ajax>
+	</module>
+	
+	<rewriterouter>
+		<pc>
+			<routes>
+
+			</routes>
+		</pc>
+	</rewriterouter>
+</app>

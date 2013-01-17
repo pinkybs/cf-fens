@@ -1,0 +1,21 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><span>システム設定</span></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<p>■　<a href="{%$baseUrl%}/setting/crawl">クローリング設定：</a>　クローラーの基本設定を行うことができます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		<p>■　<a href="{%$baseUrl%}/setting/syncdb">DB同期設定：</a>　クローラー取得データと運用サービスデータとの同期設定ができます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		<p>■　<a href="{%$baseUrl%}/setting/changepass">ID・パスワード設定：</a>　本システムログインID・パスワードの設定ができます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

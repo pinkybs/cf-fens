@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/*
+----------------------------------------------
+Parking Wars Base CSS
+
+Created Date: 2009/06/17
+Author: Taiki Toyosawa
+Last Up Date : 2009/06/17
+Author: Taiki Toyosawa
+----------------------------------------------
+*/
+
+
+/*clearfix
+----------------------------------------------*/
+.clear {
+	clear: both;
+}
+.clearfix,
+ul,
+ol.numberList,
+#continer,
+#wrap,
+#members ul li,
+.section,
+.inner,
+#follows .follow .hdr,
+#entries .entry .hdr,
+#mypage #mainColumn #statusBox {
+    zoom:1;/*for IE 5.5-7*/
+}
+.clearfix:after,
+ul:after,
+ol.numberList:after,
+#continer:after,
+#wrap:after,
+#members ul li:after,
+.section:after,
+.inner:after,
+#follows .follow .hdr:after,
+#entries .entry .hdr:after,
+#mypage #mainColumn #statusBox:after {/*for modern browser*/
+    content:".";
+    display: block;
+    height:0px;
+    clear:both;
+    visibility:hidden;
+}
+

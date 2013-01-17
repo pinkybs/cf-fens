@@ -1,0 +1,41 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><span>検索結果管理</span></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>検索上位結果コントロール</h2>
+		<span>検索結果上位コントロール</span>　<a href="{%$baseUrl%}/search/keywordrank">入力検索キーワード</a>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		キーワード：<input type="text" id="txtFixedKeyword" name="txtFixedKeyword" value="" size="60" maxlength="100" />
+		<input type="button" id="btnFixedSearch" name="btnFixedSearch" value="　検索　" />
+		<input type="button" id="btnFixedClear" name="btnFixedClear" value="　クリア　" />
+		<br />■検索上位は以下の設定となっています。順番を入れ替える場合は、やじるしボタン押して下さい。
+		<br />全てのキーワード検索の上位結果には以下のページURLが表示されます。検索キーワード「<span id="lblFixedKeyword"></span>」の上位<span id="lblFixedCount">0</span>位まで設定されています。
+		<div id="divFixedList" style="margin-bottom:12px"></div>
+		<input type="hidden" id="hidSrhFixedKeyword" name="hidSrhFixedKeyword" value="" />
+
+<br /><HR style="display:block;margin-top:5px;margin-bottom:5px;"><br />
+
+
+		<br />キーワード・URL：<input type="text" id="txtKeyword" name="txtKeyword" value="" size="60" maxlength="100" />
+		<input type="button" id="btnSearch" name="btnSearch" value="　検索　" />
+		<input type="button" id="btnClear" name="btnClear" value="　クリア　" />
+		<br />■検索上位に設定するためのページ（URL）を検索し、設定することができます。
+		<br />検索キーワード「<span id="lblKeyword"></span>」の結果を表示しています。上位結果を固定するページURLを選択して下さい。
+		<div id="divList" style="margin-bottom:12px"></div>
+		<input type="hidden" id="hidSrhKeyword" name="hidSrhKeyword" value="" />
+
+		<input type="hidden" id="pageIndex1" name="pageIndex1" value="1" />
+		<input type="hidden" id="pageIndex2" name="pageIndex2" value="1" />
+
+		<script src="{%$staticUrl%}/admin/js/search/keywordresult.js?{%$version.js%}"></script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

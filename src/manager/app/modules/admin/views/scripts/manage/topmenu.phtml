@@ -1,0 +1,25 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>管理システムメインメニュー</h2>
+		<br />
+		<p>■　<a href="{%$baseUrl%}/manage/listsite">クロールサイト管理：</a>　クローリングを行うサイトの設定などが行えます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		<p>■　<a href="{%$baseUrl%}/search/top">検索結果管理：</a>　検索結果のコントロールなどが行えます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		<p>■　<a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理：</a>　対象サイトのグルーピングのためのカテゴリー管理が行えます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		<p>■　<a href="{%$baseUrl%}/setting/top">システム設定：</a>　同時クローリング数、タイミング、DB同期設定、本システム管理ID、パスワードなどの設定が行えます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

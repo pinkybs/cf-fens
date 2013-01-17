@@ -1,0 +1,60 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><span>クロールサイト管理</span></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>対象サイト設定（新規登録 ）</h2>
+		<div id="auth">
+			<p>クロール対象となるサイトを新規登録します。フォームに必要事項を入力・選択し、「設定」ボタンを押して下さい。※：必須</p><br />
+			<div id="completeMsg" style="display:none" class="completeMsg"></div>
+			<div id="errMsg" class="error" style="display:none"></div>
+			<form method="post" id="frmAdd">
+				<table width="100%">
+				<tr><th style="width:220px;table-layout:fixed;">設定項目</th><th>設定内容</th></tr>
+				<tr><td>サイト名：※</td><td><input type="text" id="txtName" name="txtName" value="" maxlength="100" size="60" class="required" />
+				<div class="validation-advice" id="advice-required-txtName" title="サイト名を設定して下さい。" style="display:none;"></div></td>
+				</tr>
+				<tr><td>サイトURL：※</td><td><input type="text" id="txtUrl" name="txtUrl" value="" maxlength="200" size="60" class="required validate-url" />
+				<div class="validation-advice" id="advice-required-txtUrl" title="サイトURLを設定して下さい。" style="display:none;"></div></td>
+				</tr>
+				<tr><td>サイトTopページファイル：</td><td><input type="text" id="txtToppage" name="txtToppage" value="" maxlength="100" size="60" class="" />
+				<div class="validation-advice" id="advice-required-txtToppage" title="サイトTopページファイルを入力して下さい。" style="display:none;"></div></td>
+				</tr>
+				<tr><td>エリア：</td><td><select id="selArea" name="selArea">
+            				 <option value="">選択なし</option>
+            				 {% foreach from=$lstArea item=areaData %}
+            					<option value="{%$areaData.id%}">{%$areaData.name|escape%}</option>
+            				 {% /foreach %}
+            			   </select></td></tr>
+				<tr><td>カテゴリ：</td><td><select id="selCate" name="selCate">
+            					<option value="">選択なし</option>
+            					{% foreach from=$lstCate item=cateData %}
+            					<option value="{%$cateData.id%}">{%$cateData.name|escape%}</option>
+            					{% /foreach %}
+            				</select></td></tr>
+				<tr><td colspan="2"><input type="button" id="btnSubmit" value="　設定　" /></td>
+				</tr>
+				</table>
+			</form>
+
+<br />
+			<form method="post" id="frmBack" action="{%$baseUrl%}/manage/listsite">
+    			<input type="hidden" id="pageIndex" name="pageIndex" value="{%$pageIndex%}" />
+    			<input type="hidden" id="hidSrhName" name="hidSrhName" value="{%$hidSrhName%}" />
+    			<input type="hidden" id="hidSrhUrl" name="hidSrhUrl" value="{%$hidSrhUrl%}" />
+    			<input type="hidden" id="hidSrhCate" name="hidSrhCate" value="{%$hidSrhCate%}" />
+    			<input type="hidden" id="hidSrhArea" name="hidSrhArea" value="{%$hidSrhArea%}" />
+    			<a href="javascript:void(0);" onclick="$('frmBack').submit();return false;">&lt;&lt;前の画面へ</a>
+			</form>
+		</div><!--/#auth-->
+		<script src="{%$staticUrl%}/admin/js/manage/addsite.js?{%$version.js%}"></script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

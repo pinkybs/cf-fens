@@ -1,0 +1,22 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><span>検索結果管理</span></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>入力検索キーワード一覧</h2>
+		<a href="{%$baseUrl%}/search/keywordresult">検索結果上位コントロール</a>　<span>入力検索キーワード</span>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		{%$yesDate%}までに　ユーザーが検索キーワードとして指定したキーワードはこれまでに<span id="lblTotalCount">0</span>件あります。そのうち<span id="lblPageCount">0</span>件を表示しています。<br />
+		<div id="divList" style="margin-bottom:12px"></div>
+		<input type="hidden" id="pageIndex" name="pageIndex" value="1" />
+		<script src="{%$staticUrl%}/admin/js/search/keywordrank.js?{%$version.js%}"></script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

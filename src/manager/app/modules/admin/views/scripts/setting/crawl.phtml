@@ -1,0 +1,52 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><span>システム設定</span></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>クローリング設定</h2>
+		<div id="auth">
+			●<a href="{%$baseUrl%}/setting/crawl">クローリング設定</a>　●<a href="{%$baseUrl%}/setting/syncdb">DB同期設定</a>　●<a href="{%$baseUrl%}/setting/changepass">ID・パスワード設定</a>
+			<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+			<p>■クローリングタイミング及びクローラー数を設定して下さい</p><br />
+			{% if $completeMsg %}<div id="completeMsg" class="completeMsg">{%$completeMsg%}</div>{% /if %}
+			{% if $errMsg %}<div id="errMsg" class="error">{%$errMsg%}</div>{% /if %}
+			<form method="post" id="frmSetting" action="{%$baseUrl%}/setting/crawl">
+				<table width="80%">
+				<tr><th width="20%">設定項目</th><th>設定内容</th></tr>
+				<tr><td>追加クローリングタイミング：</td>
+				<td><select id="selRate" name="selRate">
+					<option value="1" {% if 1==$crawlSet.timing %}selected="selected"{% /if %}>1</option>
+					<option value="5" {% if 5==$crawlSet.timing %}selected="selected"{% /if %}>5</option>
+					<option value="10" {% if 10==$crawlSet.timing %}selected="selected"{% /if %}>10</option>
+					<option value="15" {% if 15==$crawlSet.timing %}selected="selected"{% /if %}>15</option>
+					<option value="24" {% if 24==$crawlSet.timing %}selected="selected"{% /if %}>24</option>
+				</select>時間に一日</td></tr>
+				<tr><td>全体クローリングタイミング：</td>
+				<td><select id="selRateAll" name="selRateAll">
+					<option value="5" {% if 5==$crawlSet.new_timing %}selected="selected"{% /if %}>5</option>
+					<option value="10" {% if 10==$crawlSet.new_timing %}selected="selected"{% /if %}>10</option>
+					<option value="20" {% if 20==$crawlSet.new_timing %}selected="selected"{% /if %}>20</option>
+					<option value="30" {% if 30==$crawlSet.new_timing %}selected="selected"{% /if %}>30</option>
+				</select>日に一回</td></tr>
+				<tr><td>クローラー数：</td>
+				<td><select id="selCount" name="selCount">
+					<option value="1" {% if 1==$crawlSet.number %}selected="selected"{% /if %}>1</option>
+					<option value="2" {% if 2==$crawlSet.number %}selected="selected"{% /if %}>2</option>
+					<option value="3" {% if 3==$crawlSet.number %}selected="selected"{% /if %}>3</option>
+					<option value="4" {% if 4==$crawlSet.number %}selected="selected"{% /if %}>4</option>
+					<option value="5" {% if 5==$crawlSet.number %}selected="selected"{% /if %}>5</option>
+				</select>クローラー</td></tr>
+				<tr><td colspan="2"><input type="submit" id="btnSubmit" value="　設定　" /></td></tr>
+				</table>
+			</form>
+		</div><!--/#auth-->
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

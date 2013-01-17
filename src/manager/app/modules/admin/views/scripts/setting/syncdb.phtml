@@ -1,0 +1,66 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><span>システム設定</span></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>DB同期設定</h2>
+		<div id="auth">
+			●<a href="{%$baseUrl%}/setting/crawl">クローリング設定</a>　●<a href="{%$baseUrl%}/setting/syncdb">DB同期設定</a>　●<a href="{%$baseUrl%}/setting/changepass">ID・パスワード設定</a>
+			<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+			<p>■DBを同期設定をして下さい</p><br />
+			{% if $completeMsg %}<div id="completeMsg" class="completeMsg">{%$completeMsg%}</div>{% /if %}
+			{% if $errMsg %}<div id="errMsg" class="error">{%$errMsg%}</div>{% /if %}
+			<form method="post" id="frmSetting" action="{%$baseUrl%}/setting/syncdb">
+				<table width="80%">
+				<tr><th width="20%">設定項目</th><th>設定内容</th></tr>
+				<tr><td>DB同期タイミング：</td>
+				<td><select id="selSync" name="selSync">
+					<option value="1" {% if 1==$crawlSet.db_synchronize_timing %}selected="selected"{% /if %}>1</option>
+					<option value="5" {% if 5==$crawlSet.db_synchronize_timing %}selected="selected"{% /if %}>5</option>
+					<option value="10" {% if 10==$crawlSet.db_synchronize_timing %}selected="selected"{% /if %}>10</option>
+					<option value="15" {% if 15==$crawlSet.db_synchronize_timing %}selected="selected"{% /if %}>15</option>
+					<option value="24" {% if 24==$crawlSet.db_synchronize_timing %}selected="selected"{% /if %}>24</option>
+				</select>時間に一回</td></tr>
+				<tr><td colspan="2"><input type="submit" name="btnSetting" value="　設定　" /></td></tr>
+				</table>
+				<input type="hidden" name="hidTk" value="{%$validTk%}" />
+			</form>
+
+<br /><HR style="display:block;margin-top:5px;margin-bottom:5px;"><br />
+
+			<p>■手動でDB同期を行うにはこちらの「今すぐDB同期」ボタンを押して下さい。</p><br />
+			{% if $completeMsg1 %}<div id="completeMsg1" class="completeMsg">{%$completeMsg1%}</div>{% /if %}
+			<form method="post" id="frmSync" action="{%$baseUrl%}/setting/syncdb">
+				<input type="hidden" id="hidSync" name="hidSync" value="1" />
+				<input type="hidden" name="hidTk" value="{%$validTk%}" />
+				<table width="80%">
+				<tr><th width="20%">設定項目</th><th>設定内容</th></tr>
+				<tr><td>最終同期日時：</td><td>{%$lastSyncDate%}</td></tr>
+				<tr><td colspan=""2><input type="button" value="　今すぐDB同期　" name="btnSync" onclick="syncdb(this);" {%if 1==$disableSync%}disabled{%/if%} /></td></tr>
+				</table>
+			</form>
+		</div><!--/#auth-->
+		<script type="text/javascript" language="javascript">
+            /**
+             * submit to syncdb action
+             * @param  null
+             * @return void
+             */
+            function syncdb(obj) {
+                if (!window.confirm('今すぐDB同期を行いますか?')) {
+                    return false;
+                }
+                $(obj).disable();
+                $('frmSync').submit();
+            }
+		</script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

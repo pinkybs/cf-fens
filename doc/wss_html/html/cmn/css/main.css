@@ -1,0 +1,485 @@
+@charset "utf-8";
+
+/*
+----------------------------------------------
+Parking Wars Base CSS
+
+Created Date: 2009/06/17
+Author: Taiki Toyosawa
+Last Up Date : 2009/06/17
+Author: Taiki Toyosawa
+----------------------------------------------
+*/
+
+
+/*tags
+----------------------------------------------*/
+/*
+border-radius: 3px;/*CSS3
+-webkit-border-radius: 3px;/*Safari
+-moz-border-radius: 3px;/*Firefox
+*/
+* {
+	outline: none;
+}
+
+body,html {
+	/*height: 100%;*/
+}
+
+body {
+	_background: url(null) fixed;/*IE6*/
+	font-family: 'Hiragino Kaku Gothic Pro';/*Safari*/
+	/font-family: 'メイリオ';/*IE6,IE7*/
+	color: #333333;
+}
+a {
+	color: #551D66;
+	text-decoration: underline;
+	cursor: pointer;
+}
+a:link,a:hover {
+	color: #941D55;
+}
+a:link,a:visited {
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	display: block;
+}
+
+textarea {
+	margin: 0;
+	padding: 3px;
+}
+
+pre {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+
+/*layout
+----------------------------------------------*/
+	/* body#layout1 */
+body#layout1 #wrap {
+	margin: 0 auto;
+	width: 720px;
+}
+body#layout1 #continer {
+	width: 720px;
+}
+	/*body#layout2 */
+body#layout2 #wrap {
+	margin: 0 20px;
+}
+body#layout2 #continer {
+	width: 100%;
+}
+
+/*hdr
+----------------------------------------------*/
+	/* body#layout1 */
+body#layout1 #hdr {
+	padding: 20px 0 0 0;
+	margin: 0 0 15px 0;
+	width: 720px;
+}
+	body#layout1 #hdr #logo {
+		float: left;
+	}
+	body#layout1 #hdr .description {
+		display: inline;
+		float: left;
+		margin: 36px 0 0 17px;
+		width: 424px;
+		height: 46px;
+		text-indent: -10000px;
+		background: url(../img/contents/leadtext_1.png) no-repeat 0 0;
+	}
+	/* body#layout2 */
+body#layout2 #hdr {
+	padding: 20px 0 0 0;
+	margin: 0 0 6px 0;
+}
+	body#layout2 #hdr #logo {
+		float: left;
+	}
+	body#layout2 #hdr .description {
+		display: inline;
+		float: left;
+		margin: 22px 0 0 17px;
+		width: 221px;
+		height: 16px;
+		text-indent: -10000px;
+		background: url(../img/contents/leadtext_2.png) no-repeat 0 0;
+	}
+
+/*searchBox
+----------------------------------------------*/
+	/* body#layout1 */
+body#layout1 #searchBox {
+	padding: 0 0 10px 0;
+	margin-bottom: 30px;
+	width: 720px;
+	background: url(../img/contents/bg_search_box_1.jpg) no-repeat 0 bottom;
+}
+	body#layout1 form#searchForm {
+		padding: 10px 0 0 0;
+		background: url(../img/contents/bg_search_box_1.jpg) no-repeat 0 top;
+	}
+		body#layout1 #searchBox #searchBoxInner {
+			padding: 0 0 6px 0;
+			margin: 0 20px;
+			background: url(../img/contents/bg_search_form_1.png) no-repeat 0 bottom;
+		}
+			body#layout1 #searchBox #searchBoxInner .inner {
+				padding: 7px 10px 0 10px;
+				vertical-align: center;
+				background: #c45D87 url(../img/contents/bg_search_form_1.png) no-repeat 0 top;
+			}
+				body#layout1 #searchBox input#searchText {
+					display: inline;
+					float: left;
+					margin: 0;
+					padding: 0;
+					width: 560px;
+					font-size: 17px;
+					min-height: 24px;
+					-height: 24px;
+					color: #888888;
+					border: none;
+					background-color: transparent;
+					font-family: "ＭＳ ゴシック",sans-serif;
+				}
+				body#layout1 #searchBox input#searchBtn {
+					display: inline;
+					float: right;
+					height: 24px;
+				}
+	/* body#layout2 */
+body#layout2 #searchBox {
+	padding: 0;
+	margin-bottom: 30px;
+	width: 100%;
+	background: url(../img/contents/bg_search_box_2_2.jpg) repeat-x 0 0;
+}
+	body#layout2 .inner1 {
+		background: url(../img/contents/bg_search_box_2_1.jpg) no-repeat left top;
+	}
+		body#layout2 .inner1 .inner2 {
+			padding: 10px 0 0 0;
+			background: url(../img/contents/bg_search_box_2_3.jpg) no-repeat right top;
+		}
+			body#layout2 .inner1 .inner2 ul {
+				padding: 0;
+				margin: 0 0 0 23px;
+			}
+				body#layout2 .inner1 .inner2 ul li {
+					display: inline;
+					float: left;
+					padding: 0 0 0 1px;
+					margin: 0;
+					font-size: 12px;
+					background: url(../img/contents/bar_tab.gif) no-repeat 0 center;
+				/*border-left: 1px solid #dd9Dbb;
+					border-right: 1px solid #883d77;*/
+				}
+				body#layout2 .inner1 .inner2 ul li.listTop {
+					border-left: none;
+					background: none;
+				}
+					body#layout2 .inner1 .inner2 ul li a {
+						display: block;
+						color: #fff;
+						padding: 0 0 0 3px;
+						text-decoration: none;
+					}
+					/*IE6*/
+					*html body#layout2 .inner1 .inner2 ul li a {
+						display: inline;
+					}
+					body#layout2 .inner1 .inner2 ul li a:hover {
+						background: #941D55 url(../img/contents/tab_search.png) no-repeat 0 0;
+					}
+					body#layout2 .inner1 .inner2 ul li.stay a {
+						background: #941D55 url(../img/contents/tab_search.png) no-repeat 0 0;
+					}
+						body#layout2 .inner1 .inner2 ul li a span {
+							display: block;
+							padding: 4px 8px 3px 5px;
+						}
+						/*IE6*/
+						*html body#layout2 .inner1 .inner2 ul li a span {
+							display: inline;
+						}
+						body#layout2 .inner1 .inner2 ul li a:hover span {
+							color: #551D66;
+							background: url(../img/contents/tab_search.png) no-repeat right 0;
+						}
+						body#layout2 .inner1 .inner2 ul li.stay a span {
+							color: #551D66;
+							background: url(../img/contents/tab_search.png) no-repeat right 0;
+						}
+	body#layout2 form#searchForm {
+		padding: 0;
+		background: url(../img/contents/bg_search_box_2_4.png) no-repeat left bottom;
+	}
+		body#layout2 #searchBox .inner3 {
+			padding: 0 0 10px 0;
+			background: url(../img/contents/bg_search_box_2_5.png) no-repeat right bottom;
+		}
+			body#layout2 #searchBox .inner3 .inner4 {
+				padding: 0 0 4px 0;
+				margin: 0 20px;
+				width: 460px;
+				background: url(../img/contents/bg_search_form_2.png) no-repeat 0 bottom;
+			}
+				body#layout2 #searchBox .inner4 .inner5 {
+					position: relative;
+					padding: 4px 10px 0 10px;
+					background: #941D55 url(../img/contents/bg_search_form_2.png) no-repeat 0 0;
+				}
+					body#layout2 #searchBox input#searchText {
+						display: inline;
+						float: left;
+						margin: 0;
+						padding: 0;
+						width: 340px;
+						min-height: 17px;
+						-height: 17px;
+						font-size: 13px;
+						color: #888888;
+						border: none;
+						background-color: transparent;
+						font-family: "ＭＳ ゴシック",sans-serif;
+					}
+					body#layout2 #searchBox input#searchBtn {
+						position: absolute;
+						top: 4px;
+						right: 10px;
+						
+					}
+
+
+
+/*.box
+----------------------------------------------*/
+#container .box {
+	padding: 0 0 20px 0;
+	margin: 0 auto 20px auto;
+	width: 720px;
+	background: url(../img/contents/bg_box.jpg) no-repeat 0 bottom;
+}
+	#container .box .inner {
+		padding: 10px 3px 0 3px;
+		margin: 0;
+		width: 720px;
+		background: url(../img/contents/bg_box.jpg) no-repeat 0 top;
+	}
+		#container .box .inner h2 {
+			padding: 0;
+			margin: 0 0 20px 4px;
+			text-indent: -10000px;
+		}
+		/*categoriesBox*/
+		#container #categoriesBox.box .inner ul {
+			padding: 0 10px 15px 10px;
+			margin: 0;
+		}
+			#container #categoriesBox.box .inner ul li {
+				display: inline;
+				float: left;
+				padding: 0 0 5px 8px;
+				margin: 0;
+				font-size: 15px;
+			}
+				#container #categoriesBox.box .inner ul li a {
+					padding: 2px 0 2px 12px;
+					margin: 0;
+					background: url(../img/contents/icn_ancher.jpg) no-repeat 0 center;
+				}
+			
+		
+		/*areaBox*/
+		#container #areaBox.box .inner .block {
+			display: inline;
+			float: left;
+			padding: 0;
+			margin: 0 0 5px 20px;
+			width: 327px;
+		}
+			#container #areaBox.box .inner .block h3 {
+				padding: 0;
+				margin: 0;
+				background: url(../img/contents/bg_title.png) repeat-x 0 center;
+			}
+				#container #areaBox.box .inner .block h3 span{
+					padding: 1px 5px 1px 0;
+					margin: 0;
+					color: #551D66;
+					font-weight: bold;
+					font-size: 14px;
+					background-color: #fff;
+				}
+			#container #areaBox.box .inner .block ul {
+				padding: 8px 0 0 0;
+				margin: 0;
+			}
+				#container #areaBox.box .inner .block ul li {
+					display: inline;
+					float: left;
+					padding: 0 10px 3px 0;
+					margin: 0;
+					font-size: 13px;
+				}
+					#container #areaBox.box .inner .block ul li a {
+						display: block;
+						padding: 2px 0 2px 12px;
+						margin: 0;
+						background: url(../img/contents/icn_ancher.jpg) no-repeat 0 center;
+					}
+					*+html #container #areaBox.box .inner .block ul li a {
+						width: 39px;
+					}
+					*html #container #areaBox.box .inner .block ul li a {
+						width: 39px;
+					}
+/*.liquidBox
+----------------------------------------------*/
+#container .liquidBox {
+	padding: 0;
+	margin: 0 0 30px 0;
+	width: 100%;
+}
+	#container .liquidBox .lead {
+		padding: 2px 0;
+		margin: 0 0 20px 0;
+		font-size: 17px;
+		background: url(../img/contents/bg_title.png) repeat-x 0 center;
+	}
+		#container .liquidBox .lead h2 {
+			float: left;
+			padding: 0;
+			margin: 0;
+		}
+			#container .liquidBox .lead h2 span {
+				padding: 0 10px 0 0;
+				line-height: 1.4em;
+				background-color: #fff;
+			}
+		#container .liquidBox .lead div {
+			display: inline;
+			float: right;
+			padding: 0 10px;
+			margin: 0 20px 0 0;
+			line-height: 1.4em;
+			background-color: #fff;
+		}
+	/*resultBox*/
+	#container #resultBox.liquidBox ul {
+		padding: 0;
+		margin: 0;
+	}
+		#container #resultBox.liquidBox ul li {
+			padding: 10px;
+			margin: 0;
+			font-size: 14px;
+			line-height: 1.1em;
+		}
+		#container #resultBox.liquidBox ul li.odd {
+			background-color: #ffe8ea;
+			border-radius: 2px;/*CSS3*/
+			-webkit-border-radius: 2px;/*Safari*/
+			-moz-border-radius: 2px;/*Firefox*/
+		}
+			#container #resultBox.liquidBox ul li h4 {
+				padding: 0;
+				margin: 0 0 8px 0;
+				font-size: 15px;
+			}
+			#container #resultBox.liquidBox ul li h4 a {
+				padding: 2px 0;
+			}
+				#container #resultBox.liquidBox ul li p {
+					padding: 0;
+					margin: 0 0 8px 0;
+					font-size: 14px;
+				}
+			#container #resultBox.liquidBox ul li address {
+				padding: 0;
+				margin: 0;
+				font-size: 12px;
+			}
+	/*pageNavBottom*/
+	#container ul#pageNavBottom {
+		padding: 0;
+		margin: 0 auto 30px auto;
+		width: 520px;
+		font-size: 17px;
+		font-weight: bold;
+	}
+		#container ul#pageNavBottom li {
+			display: inline;
+			float: left;
+			padding: 0;
+			margin: 0 0 0 5px;
+		}
+		#container ul#pageNavBottom li.stay {
+			padding: 7px 10px;
+			background-color: #ddd;
+			border-radius: 2px;/*CSS3*/
+			-webkit-border-radius: 2px;/*Safari*/
+			-moz-border-radius: 2px;/*Firefox*/
+		}
+			#container ul#pageNavBottom li a {
+				display: block;
+				padding: 7px 10px;
+				margin: 0;
+				background-color: #ffe8ea;
+				border-radius: 2px;/*CSS3*/
+				-webkit-border-radius: 2px;/*Safari*/
+				-moz-border-radius: 2px;/*Firefox*/
+			}
+			*html #container ul#pageNavBottom li a {
+				display: inline;
+			}
+			#container ul#pageNavBottom li a:hover {
+				background-color: #ffb8ba;
+			}
+		#container ul#pageNavBottom li.nextBtn {
+			padding: 0;
+		}
+			#container ul#pageNavBottom li.nextBtn a {
+				padding: 7px 0;
+				margin: 0 0 0 3px;
+				background-color: transparent;
+			}
+			*html #container ul#pageNavBottom li.nextBtn a {
+				width: ;
+			}
+			#container ul#pageNavBottom li.nextBtn a:hover {
+				background-color: transparent;
+			}
+
+
+
+
+/*copyright
+----------------------------------------------*/
+address#copyright {
+			display: block;
+			width: 420px;
+			margin: 0 auto;
+			color: #551D66;
+			font-size: 12px;
+			text-align: center;
+		}
+

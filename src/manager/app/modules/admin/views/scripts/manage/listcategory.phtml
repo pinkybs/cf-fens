@@ -1,0 +1,25 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><span>カテゴリー管理</span></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>カテゴリー一覧</h2>
+		設定済みカテゴリーは<span id="lblTotalCount">0</span>件あります。そのうち<span id="lblPageCount">0</span>件を表示しています。<br />
+		<input type="button" id="btnNew" name="btnNew" value="カテゴリー新規登録" /><br /><br />
+
+		<div id="divList" style="margin-bottom:12px;"></div>
+
+		<form method="post" id="frmBack">
+			<input type="hidden" id="pageIndex" name="pageIndex" value="{%$pageIndex%}" />
+		</form>
+		<script src="{%$staticUrl%}/admin/js/manage/listcategory.js?{%$version.js%}"></script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

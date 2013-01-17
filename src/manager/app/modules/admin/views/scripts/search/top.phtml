@@ -1,0 +1,19 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><a href="{%$baseUrl%}/manage/listsite">クロールサイト管理</a></li>
+		<li><span>検索結果管理</span></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<p>■　<a href="{%$baseUrl%}/search/keywordresult">検索上位結果コントロール：</a>　各キーワードに対する検索上位結果を設定できます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+		<p>■　<a href="{%$baseUrl%}/search/keywordrank">入力検索キーワード一覧：</a>　ユーザーが検索で使用したキーワード一覧が閲覧できます。</p>
+		<HR style="display:block;margin-top:5px;margin-bottom:5px;">
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}

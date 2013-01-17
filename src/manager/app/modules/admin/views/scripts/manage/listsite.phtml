@@ -1,0 +1,53 @@
+{%include file="header.phtml"%}
+
+<body id="admin">
+	<h1>FENS様検索エンジン管理システム</h1>
+	<ul id="nav">
+		<li><span>クロールサイト管理</span></li>
+		<li><a href="{%$baseUrl%}/search/top">検索結果管理</a></li>
+		<li><a href="{%$baseUrl%}/manage/listcategory">カテゴリー管理</a></li>
+		<li><a href="{%$baseUrl%}/setting/top">システム設定</a></li>
+		<li><a href="{%$baseUrl%}/auth/logout">ログアウト</a></li>
+	</ul>
+	<div id="container">
+		<h2>クロールサイト一覧</h2>
+		<br />
+		<table>
+		<tr>
+		<td nowrap>サイト名：<input type="text" id="txtSrhName" name="txtSrhName" value="{%$hidSrhName%}"  maxlength="100" /></td>
+		<td nowrap>URL：<input type="text" id="txtSrhUrl" name="txtSrhUrl" value="{%$hidSrhUrl%}"  maxlength="100" /></td>
+		<td nowrap>カテゴリー：<select id="selSrhCate" name="selSrhCate">
+					<option value="">選択なし</option>
+					{% foreach from=$lstCate item=cateData %}
+					<option value="{%$cateData.id%}" {% if $cateData.id==$hidSrhCate %}selected="selected"{% /if %}>{%$cateData.name|escape%}</option>
+					{% /foreach %}
+				</select></td>
+		<td nowrap>エリア：<select id="selSrhArea" name="selSrhArea">
+				 <option value="">選択なし</option>
+				 {% foreach from=$lstArea item=areaData %}
+					<option value="{%$areaData.id%}" {% if $areaData.id==$hidSrhArea %}selected="selected"{% /if %}>{%$areaData.name|escape%}</option>
+				 {% /foreach %}
+			 </select></td>
+		<td nowrap><input type="button" id="btnSearch" name="btnSearch" value="　検索　" />
+		<input type="button" id="btnClear" name="btnClear" value="　クリア　" />
+		</td>
+		</tr>
+		<tr>
+		<td nowrap colspan="5">設定済みクロール対象サイトは<span id="lblTotalCount">0</span>件あります。そのうち<span id="lblPageCount">0</span>件を表示しています。　　　　　　　　　　　　　　　　　　　　　　　&nbsp;
+		<input type="button" id="btnNew" name="btnNew" value="サイト新規登録" /></td>
+		</tr>
+	    </table>
+	    <br />
+		<div id="divList" style="margin-bottom:12px;"></div>
+
+		<form method="post" id="frmBack">
+			<input type="hidden" id="pageIndex" name="pageIndex" value="{%$pageIndex%}" />
+			<input type="hidden" id="hidSrhName" name="hidSrhName" value="{%$hidSrhName%}" />
+			<input type="hidden" id="hidSrhUrl" name="hidSrhUrl" value="{%$hidSrhUrl%}" />
+			<input type="hidden" id="hidSrhCate" name="hidSrhCate" value="{%$hidSrhCate%}" />
+			<input type="hidden" id="hidSrhArea" name="hidSrhArea" value="{%$hidSrhArea%}" />
+		</form>
+		<script src="{%$staticUrl%}/admin/js/manage/listsite.js?{%$version.js%}"></script>
+	</div><!--/#container-->
+
+{%include file="footer.phtml"%}
